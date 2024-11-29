@@ -1,0 +1,158 @@
+/*style.css*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  height: 90vh;
+  gap: 20px;
+}
+
+.chart-section, .chat-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #2F8D46;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 10px 10px 0 0;
+}
+
+header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.chatbox {
+  flex: 1;
+  padding: 15px;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.chatbox li {
+  margin-bottom: 10px;
+}
+
+.chat p {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-outgoing p {
+  background-color: #162887;
+  align-self: flex-end;
+  color: #fff;
+}
+
+.chat-incoming p {
+  background-color: #eaeaea;
+}
+
+.chat-input {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+}
+
+.chat-input textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  resize: none;
+  outline: none;
+  overflow-y: scroll;
+  background-color: #dcdcdc85;
+  font-size: 16px;
+  color: green;
+  font-weight: 600;
+}
+
+#sendBTN {
+  padding: 8px;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 7px;
+  background-color: #2F8D46;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#sendBTN:hover {
+  background-color: #276c3b;
+}
+
+.chart-controls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#chartType {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#downloadChart {
+  padding: 8px 12px;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #2F8D46;
+  color: white;
+  cursor: pointer;
+}
+
+#downloadChart:hover {
+  background-color: #276c3b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .chart-section, .chat-section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

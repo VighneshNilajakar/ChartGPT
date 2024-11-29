@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChartGPT</title>
+    <link rel="stylesheet" href="prompt.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBAFl-a7v7eO4m0B39STbsF7P_2291K67k",
+            authDomain: "chartgpt-tv.firebaseapp.com",
+            databaseURL: "https://chartgpt-tv-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "chartgpt-tv",
+            storageBucket: "chartgpt-tv.firebasestorage.app",
+            messagingSenderId: "124941029842",
+            appId: "1:124941029842:web:5a98ea0ab760ba1bc1780b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (!user) {
+            onAuthStateChanged(auth, (user) => {
+                if (!user) {
+                    window.location.href = '/index.html'; // Redirect to login page if not authenticated
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="chart-section">
+            <p>Generated Content</p>
+            <div id="chartDiv" style="width: 100%; height: auto;"></div>
+            <div class="chart-controls">
+                <label for="chartType">Select Chart Type before entering your Keyword :</label>
+                <select id="chartType">
+                    <option value="ColumnChart">Column Chart</option>
+                    <option value="BarChart">Bar Chart</option>
+                    <option value="LineChart">Line Chart</option>
+                    <option value="PieChart">Pie Chart</option>
+                </select>
+                <br>
+                <button id="downloadChart">Download Chart</button>
+            </div>
+        </div>
+        <div class="chat-section">
+            <header>
+                <h2>ChartGPT</h2>
+            </header>
+            <ul class="chatbox">
+                <li class="chat-incoming chat">
+                    <p>Hey! Please provide keyword for what data do you need a Visual Chart.</p>
+                </li>
+            </ul>
+            <div class="chat-input">
+                <textarea rows="1" cols="17" placeholder="Enter the keyword..."></textarea>
+                <button id="sendBTN">Send</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="prompt.js" defer></script>
+</body>
+</html>

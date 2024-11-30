@@ -6,7 +6,7 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
 - Website -  https://chartgpt-tv.web.app/
 - YouTube Video - https://youtu.be/6qq1pvhh9VI
 
-![](demo_video.mp4)
+![](/demo_video.mp4)
 
 ## Table of Contents
 

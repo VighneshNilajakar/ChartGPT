@@ -74,4 +74,56 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
     - Select the chart type from the dropdown menu.
     - Download the generated chart as a PNG file.
 
-## Project Structure
+
+### Detailed Explanation
+
+#### 1. **Authentication**
+
+- **Files Involved**: [`public/index.html`](public/index.html), [`public/app.js`](public/app.js), [`public/styles.css`](public/styles.css)
+- **Functionality**:
+  - **Sign Up**: Users can sign up using an email and password.
+  - **Sign In**: Users can sign in using their credentials.
+  - **Sign Out**: Users can sign out of their account.
+  - **Auth State**: The application checks the authentication state and displays the appropriate UI.
+
+#### 2. **Chart Generation and Display**
+
+- **Files Involved**: [`public/prompt/prompt.html`](public/prompt/prompt.html), [`public/prompt/prompt.js`](public/prompt/prompt.js), [`public/prompt/prompt.css`](public/prompt/prompt.css)
+- **Functionality**:
+  - **Chat Interface**: Users can input keywords to generate data visualizations.
+  - **Google Charts**: The application uses Google Charts to visualize data based on user input.
+  - **Download Chart**: Users can download the generated chart as a PNG file.
+
+#### 3. **Firebase Hosting**
+
+- **Files Involved**: [`firebase.json`](firebase.json), [`.firebaserc`](.firebaserc), [`.github/workflows/firebase-hosting-merge.yml`](.github/workflows/firebase-hosting-merge.yml), [`.github/workflows/firebase-hosting-pull-request.yml`](.github/workflows/firebase-hosting-pull-request.yml)
+- **Functionality**:
+  - **Hosting Configuration**: The [`firebase.json`](firebase.json) file configures the public directory and rewrites for hosting.
+  - **GitHub Actions**: CI/CD workflows for deploying the application to Firebase Hosting on merge and pull requests.
+
+#### 4. **Styling**
+
+- **Files Involved**: [`public/styles.css`](public/styles.css), [`public/prompt/prompt.css`](public/prompt/prompt.css)
+- **Functionality**:
+  - **Global Styles**: Basic styling for the entire application.
+  - **Component Styles**: Specific styles for the login form, chat interface, and chart controls.
+
+#### 5. **JavaScript Functionality**
+
+- **Files Involved**: [`public/app.js`](public/app.js), [`public/prompt/prompt.js`](public/prompt/prompt.js)
+- **Functionality**:
+  - **Event Listeners**: Handling user interactions such as sign up, sign in, sign out, and sending chat messages.
+  - **API Integration**: Using Google Generative AI for generating responses and Google Charts for data visualization.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

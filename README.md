@@ -41,7 +41,7 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/chartgpt.git
+    git clone https://github.com/vighneshnilajakar/chartgpt.git
     cd chartgpt
     ```
 

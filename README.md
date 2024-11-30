@@ -11,7 +11,7 @@ YouTube Video - https://youtu.be/6qq1pvhh9VI
 - [Architecture](#architecture)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Detailed Explaination](#detailed-explaination)
+- [Detailed Explaination](#detailed-explanation)
 - [Contributing](#contributing)
 - [License](#license)
 

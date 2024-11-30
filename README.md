@@ -1,6 +1,9 @@
 # ChartGPT
 
 ChartGPT is an AI-powered chart generation tool that allows users to generate charts based on their input. The application uses Firebase for authentication and hosting, and Google Charts for data visualization.
+Demo :
+Website -  https://chartgpt-tv.web.app/
+YouTube Video - https://youtu.be/6qq1pvhh9VI
 
 ## Table of Contents
 
@@ -8,7 +11,7 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
 - [Architecture](#architecture)
 - [Setup and Installation](#setup-and-installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
+- [Detailed Explaination](#detailed-explaination)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -75,7 +78,7 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
     - Download the generated chart as a PNG file.
 
 
-### Detailed Explanation
+## Detailed Explanation
 
 #### 1. **Authentication**
 

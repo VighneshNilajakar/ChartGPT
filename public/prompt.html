@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChartGPT</title>
+    <title>ChartGPT - AI-Powered Chart Generation</title>
     <link rel="stylesheet" href="prompt.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script type="importmap">
@@ -26,7 +26,7 @@
         if (!user) {
             onAuthStateChanged(auth, (user) => {
                 if (!user) {
-                    window.location.href = '/index.html'; // Redirect to login page if not authenticated
+                    window.location.href = '/index.html';
                 }
             });
         }
@@ -35,31 +35,32 @@
 <body>
     <div class="container">
         <div class="chart-section">
-            <p>Generated Content</p>
-            <div id="chartDiv" style="width: 100%; height: auto;"></div>
+            <p>Generated Chart</p>
+            <div id="chartDiv"></div>
             <div class="chart-controls">
-                <label for="chartType">Select Chart Type before entering your Keyword :</label>
-                <select id="chartType">
-                    <option value="ColumnChart">Column Chart</option>
-                    <option value="BarChart">Bar Chart</option>
-                    <option value="LineChart">Line Chart</option>
-                    <option value="PieChart">Pie Chart</option>
-                </select>
-                <br>
-                <button id="downloadChart">Download Chart</button>
+                <label for="chartType">📊 Select Chart Type:</label>
+                <div class="chart-controls-row">
+                    <select id="chartType">
+                        <option value="ColumnChart">📊 Column Chart</option>
+                        <option value="BarChart">📈 Bar Chart</option>
+                        <option value="LineChart">📉 Line Chart</option>
+                        <option value="PieChart">🥧 Pie Chart</option>
+                    </select>
+                    <button id="downloadChart">⬇️ Download Chart</button>
+                </div>
             </div>
         </div>
         <div class="chat-section">
             <header>
-                <h2>ChartGPT</h2>
+                <h2>✨ ChartGPT</h2>
             </header>
             <ul class="chatbox">
-                <li class="chat-incoming chat">
-                    <p>Hey! Please provide keyword for what data do you need a Visual Chart.</p>
+                <li class="chat chat-incoming">
+                    <p>👋 Hey! I'm ChartGPT. Enter a keyword to generate a stunning chart powered by AI!</p>
                 </li>
             </ul>
             <div class="chat-input">
-                <textarea rows="1" cols="17" placeholder="Enter the keyword..."></textarea>
+                <textarea rows="1" cols="17" placeholder="Enter keyword (e.g., 'world population')..."></textarea>
                 <button id="sendBTN">Send</button>
             </div>
         </div>

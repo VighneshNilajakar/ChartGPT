@@ -1,5 +1,4 @@
-/*style.css*/
-
+/*prompt.css*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
@@ -12,147 +11,446 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
-  display: flex;
-  width: 90%;
-  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 40px);
 }
 
 .chart-section, .chat-section {
-  flex: 1;
-  padding: 20px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.chart-section {
+  padding: 30px;
+}
+
+.chart-section > p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#chartDiv {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  position: relative;
+}
+
+.chart-controls {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chart-controls label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.chart-controls-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#chartType {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#chartType:hover {
+  border-color: #667eea;
+}
+
+#chartType:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#downloadChart {
+  padding: 12px 24px;
+  border: 0;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+#downloadChart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+#downloadChart:active {
+  transform: translateY(0);
+}
+
+#downloadChart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 header {
-  background-color: #2F8D46;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   text-align: center;
-  padding: 10px 0;
-  border-radius: 10px 10px 0 0;
+  padding: 25px;
+  border-radius: 16px 16px 0 0;
 }
 
 header h2 {
   color: #fff;
   margin: 0;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .chatbox {
   flex: 1;
-  padding: 15px;
+  padding: 20px;
   list-style: none;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chatbox::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chatbox::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+.chatbox::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
 }
 
 .chatbox li {
-  margin-bottom: 10px;
+  display: flex;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .chat p {
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 70%;
+  padding: 12px 18px;
+  border-radius: 14px;
+  max-width: 80%;
   word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.chat-outgoing {
+  justify-content: flex-end;
 }
 
 .chat-outgoing p {
-  background-color: #162887;
-  align-self: flex-end;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
 }
 
+.chat-incoming {
+  justify-content: flex-start;
+}
+
 .chat-incoming p {
-  background-color: #eaeaea;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #667eea;
+  animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
 }
 
 .chat-input {
-  padding: 10px;
-  border-top: 1px solid #ccc;
+  padding: 20px;
+  border-top: 1px solid #e0e0e0;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .chat-input textarea {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 7px;
-  resize: none;
+  min-width: 100px;
+  min-height: 50px;
+  max-height: 120px;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  resize: vertical;
   outline: none;
-  overflow-y: scroll;
-  background-color: #dcdcdc85;
-  font-size: 16px;
-  color: green;
-  font-weight: 600;
+  background-color: #f8f9fa;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
 }
 
-#sendBTN {
-  padding: 8px;
+.chat-input textarea:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background-color: #fff;
+}
+
+.chat-input textarea::placeholder {
+  color: #aaa;
+}
+
+.chat-input button {
+  padding: 12px 28px;
   border: 0;
   outline: none;
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 7px;
-  background-color: #2F8D46;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  margin-left: 10px;
   cursor: pointer;
-}
-
-#sendBTN:hover {
-  background-color: #276c3b;
-}
-
-.chart-controls {
-  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  height: 50px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
 }
 
-#chartType {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+.chat-input button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
-#downloadChart {
-  padding: 8px 12px;
-  border: 0;
-  outline: none;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 5px;
-  background-color: #2F8D46;
-  color: white;
-  cursor: pointer;
+.chat-input button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
-#downloadChart:hover {
-  background-color: #276c3b;
+.chat-input button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error styling */
+.error {
+  background-color: #ffe0e0 !important;
+  color: #d32f2f !important;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: calc(100vh - 40px);
+  }
+
+  .chart-section, .chat-section {
+    min-height: 400px;
+  }
+
+  .chat p {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+  }
+
+  .container {
+    gap: 15px;
     height: auto;
   }
 
   .chart-section, .chat-section {
+    padding: 20px;
+    min-height: 350px;
+  }
+
+  .chart-section > p {
+    font-size: 18px;
+  }
+
+  header h2 {
+    font-size: 24px;
+  }
+
+  .chart-controls-row {
+    flex-direction: column;
+  }
+
+  #chartType {
     width: 100%;
-    margin-bottom: 20px;
+  }
+
+  #downloadChart {
+    width: 100%;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+
+  .chat-input textarea {
+    width: 100%;
+  }
+
+  .chat-input button {
+    width: 100%;
+  }
+
+  .chatbox {
+    padding: 15px;
+  }
+
+  .chat p {
+    max-width: 95%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    gap: 12px;
+  }
+
+  .chart-section, .chat-section {
+    padding: 15px;
+    min-height: 300px;
+  }
+
+  .chart-section > p {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 20px;
+  }
+
+  header h2 {
+    font-size: 20px;
+  }
+
+  .chart-controls label {
+    font-size: 13px;
+  }
+
+  #chartType {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  #downloadChart {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .chatbox {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .chat-input {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .chat-input textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+    min-height: 45px;
+  }
+
+  .chat-input button {
+    font-size: 14px;
+    padding: 10px 20px;
+    height: 45px;
+  }
+
+  .chat p {
+    padding: 10px 14px;
+    font-size: 13px;
   }
 }

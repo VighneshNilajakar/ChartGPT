@@ -1,4 +1,5 @@
 /* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
     margin: 0;
@@ -7,84 +8,148 @@
 }
 
 body {
-    background-color: #f0f2f5;
-    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .container {
     text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 .hero {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 {
-    font-size: 48px;
-    color: #2F8D46;
+    font-size: clamp(36px, 8vw, 56px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
     margin-bottom: 10px;
+    font-weight: 800;
 }
 
 .hero p {
-    font-size: 18px;
-    color: #555;
+    font-size: clamp(14px, 4vw, 18px);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
 }
 
 .login {
     background-color: #fff;
-    width: 400px;
-    padding: 40px 30px 30px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    padding: clamp(30px, 5vw, 50px);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     text-align: center;
+    animation: slideUp 0.8s ease-out 0.2s both;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .login input {
     display: block;
-    width: calc(100% - 40px);
-    padding: 10px 20px;
-    margin: 15px auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 100%;
+    padding: clamp(12px, 3vw, 16px) 18px;
+    margin: 15px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.login input:focus {
+    outline: none;
+    border-color: #667eea;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login input::placeholder {
+    color: #bbb;
 }
 
 .btn-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
 }
 
 .btn {
     border: 0;
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    padding: clamp(12px, 3vw, 16px) 24px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.4s ease;
+    transition: all 0.3s ease;
     font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
 }
 
 .btn-pink {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
 }
 
 .btn-pink:hover {
-    background-color: #0056b3;
+    opacity: 0.9;
 }
 
 .btn-white {
-    background-color: #fff;
-    color: #007bff;
-    border: 1px solid #007bff;
+    background-color: #f8f9fa;
+    color: #667eea;
+    border: 2px solid #667eea;
 }
 
 .btn-white:hover {
-    background-color: #f0f2f5;
+    background-color: #667eea;
+    color: #fff;
 }
 
 .authPart {
@@ -93,14 +158,33 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    animation: slideUp 0.8s ease-out 0.2s both;
 }
 
 .authPart h1 {
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 28px;
+    color: #667eea;
+    font-weight: 700;
 }
 
 .authPart button {
     margin-top: 20px;
+    max-width: 300px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .btn-container {
+        gap: 10px;
+    }
 }

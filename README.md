@@ -54,9 +54,16 @@ ChartGPT is an AI-powered chart generation tool that allows users to generate ch
     npm install
     ```
 
-3. **Set up Firebase**:
+3. **Set up API Keys**:
     - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
-    - Add your Firebase configuration to `public/app.js`.
+    - Enable Firebase Authentication (Email/Password and Google Sign-In).
+    - Get your Firebase configuration from Project Settings.
+    - Obtain a Google Generative AI API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
+    - Copy `public/config.example.js` to `public/config.js`:
+        ```sh
+        cp public/config.example.js public/config.js
+        ```
+    - Edit `public/config.js` and replace the placeholder values with your actual API keys.
 
 4. **Run the application locally**:
     ```sh

@@ -1,5 +1,7 @@
 // script.js
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GENERATIVE_AI_API_KEY } from "./config.js";
+
 google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(() => console.log("Google Charts Loaded"));
 
@@ -12,8 +14,7 @@ const downloadChartBtn = document.getElementById('downloadChart');
 
 let userMessage;
 let currentChart;
-const API_KEY = "AIzaSyBQnzQnnFPPu6sWl3AZNU71w8TpKnkaCPc";
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new GoogleGenerativeAI(GENERATIVE_AI_API_KEY);
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 

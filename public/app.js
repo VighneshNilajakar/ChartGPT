@@ -7,16 +7,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBAFl-a7v7eO4m0B39STbsF7P_2291K67k",
-    authDomain: "chartgpt-tv.firebaseapp.com",
-    databaseURL: "https://chartgpt-tv-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "chartgpt-tv",
-    storageBucket: "chartgpt-tv.firebasestorage.app",
-    messagingSenderId: "124941029842",
-    appId: "1:124941029842:web:5a98ea0ab760ba1bc1780b"
-};
+import { firebaseConfig } from "./config.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
